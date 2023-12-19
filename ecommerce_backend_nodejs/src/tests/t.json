@@ -1,0 +1,158 @@
+{
+    "message": "Get all products success",
+    "status": 200,
+    "metadata": [
+        {
+            "_id": "656f428313cdc658e9cc10ee",
+            "product_name": "New Jeans",
+            "product_thumb": "product_thumb",
+            "product_price": 50,
+            "product_quantity": 5,
+            "product_description": "High-quality denim jeans",
+            "product_type": "Clothing",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "brand": "Levi's",
+                "size": "L",
+                "material": "Denim"
+            },
+            "createdAt": "2023-12-05T15:32:19.818Z",
+            "updatedAt": "2023-12-11T19:14:12.937Z",
+            "__v": 0,
+            "product_ratingAVG": 4.5,
+            "product_variations": []
+        },
+        {
+            "_id": "656f749331fc901d78dd863e",
+            "product_name": "Furniture table ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Furniture",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "brand": "TTF",
+                "size": "600,1600",
+                "material": "Oak wood"
+            },
+            "createdAt": "2023-12-05T19:05:55.687Z",
+            "updatedAt": "2023-12-05T19:05:55.687Z",
+            "__v": 0
+        },
+        {
+            "_id": "656f76a84c1a7699c28bfc83",
+            "product_name": "Electronic Apple ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Electronic",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "model": "Apple 15 64GB",
+                "manufacturer": "Apple",
+                "color": "Good"
+            },
+            "createdAt": "2023-12-05T19:14:48.077Z",
+            "updatedAt": "2023-12-05T19:14:48.077Z",
+            "__v": 0
+        },
+        {
+            "_id": "656f783f329de4fe3693abc0",
+            "product_name": "Electronic Apple ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Electronic",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "model": "Apple 15 64GB",
+                "manufacturer": "Apple",
+                "color": "Good"
+            },
+            "createdAt": "2023-12-05T19:21:35.393Z",
+            "updatedAt": "2023-12-05T19:21:35.393Z",
+            "__v": 0
+        },
+        {
+            "_id": "656f787149ce4fad6bf29cac",
+            "product_name": "Electronic Apple ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Electronic",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "model": "Apple 15 64GB",
+                "manufacturer": "Apple",
+                "color": "Good"
+            },
+            "createdAt": "2023-12-05T19:22:25.201Z",
+            "updatedAt": "2023-12-05T19:22:25.201Z",
+            "__v": 0
+        },
+        {
+            "_id": "656f79cfeb79710648786aa5",
+            "product_name": "Electronic Apple ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Electronic",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "model": "Apple 15 64GB",
+                "manufacturer": "Apple",
+                "color": "Good"
+            },
+            "createdAt": "2023-12-05T19:28:15.927Z",
+            "updatedAt": "2023-12-05T19:28:15.927Z",
+            "__v": 0
+        },
+        {
+            "_id": "656f7e3455f96e4edb700df1",
+            "product_name": "Electronic Apple ",
+            "product_thumb": "product_thumb",
+            "product_price": 500,
+            "product_quantity": 23,
+            "product_description": "New product",
+            "product_type": "Electronic",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "model": "Apple 15 64GB",
+                "manufacturer": "Apple",
+                "color": "Good"
+            },
+            "product_ratingAVG": 4.5,
+            "product_variations": [],
+            "isDraf": true,
+            "createdAt": "2023-12-05T19:47:00.171Z",
+            "updatedAt": "2023-12-05T19:47:00.171Z",
+            "product_slug": "electronic-apple",
+            "__v": 0
+        },
+        {
+            "_id": "656f7f108f0dd47984a1c252",
+            "product_name": "Bâng Quần Bảo Vệ Khuỷu Tay Co Giãn Tốt Tiện Dụng Khi Chơi Thể Thao Cho Nam",
+            "product_price": 1234,
+            "product_quantity": 23,
+            "product_description": "Áo thun nam MRM kiểu dáng Regular fit tôn dáng cơ thể, làm nổi bật form người mặc thêm nam tính, khỏe khoắn mà vẫn thoải mái vận động.",
+            "product_type": "Clothing",
+            "product_shop": "656eed86dafd441d4119e724",
+            "product_attributes": {
+                "brand": "MRM VietNam China",
+                "size": "XL",
+                "material": "Thun"
+            },
+            "product_ratingAVG": 4.5,
+            "product_variations": [],
+            "createdAt": "2023-12-05T19:50:40.017Z",
+            "updatedAt": "2023-12-05T20:59:02.441Z",
+            "product_slug": "bang-quan-bao-ve-khuyu-tay-co-gian-tot-tien-dung-khi-choi-the-thao-cho-nam",
+            "__v": 0
+        }
+    ]
+}
