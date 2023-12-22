@@ -23,7 +23,7 @@ const route = (app) => {
     })
 
     app.get("/redis", async (req, res, next) => {
-        res.send(await redisClient.get("a"))
+        res.send(await redisClient.get("ab"))
     })
 
     app.use("/auth", authRouter)
