@@ -1,6 +1,4 @@
-ecommerce_backend_nodejs/node_modules
-ecommerce_backend_nodejs/.env
+node_modules
+.env
 
 
-sys_message_queue_ecommerce/node_modules
-sys_message_queue_ecommerce/.env

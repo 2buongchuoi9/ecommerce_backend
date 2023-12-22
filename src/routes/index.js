@@ -11,6 +11,7 @@ import session from "express-session"
 import passport from "../auth/auth.passport.js"
 import keyTokenModel from "../models/keyToken.model.js"
 import apikeyModel from "../models/apikey.model.js"
+import redisClient from "../database/init.redis.js"
 
 const route = (app) => {
     app.get("/cc", (req, res, next) => {
@@ -19,6 +20,10 @@ const route = (app) => {
             permissions: ["0000"],
             status: true,
         })
+    })
+
+    app.get("/redis", async (req, res, next) => {
+        res.send(await redisClient.get("a"))
     })
 
     app.use("/auth", authRouter)

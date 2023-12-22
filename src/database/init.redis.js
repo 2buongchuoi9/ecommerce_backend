@@ -1,8 +1,13 @@
 import redis from "redis"
 
+const { REDIS_PASSWORD, REDIS_HOST, REDIS_PORT } = process.env
+
 const client = redis.createClient({
-    port: 6379,
-    host: "127.0.0.1",
+    password: REDIS_PASSWORD,
+    socket: {
+        host: REDIS_HOST,
+        port: REDIS_PORT,
+    },
 })
 
 client.on("error", function (err) {
