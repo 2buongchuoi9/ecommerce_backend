@@ -62,6 +62,12 @@ const accessController = {
             metadata: await accessService.loginWithOauth2({ email }),
         }).send(res)
     },
+    converRoleShop: async (req, res, next) => {
+        return new SuccessResponse({
+            message: "",
+            metadata: await accessService.converRoleShop({ userId: req.user.userId }),
+        }).send(res)
+    },
 }
 
 export default accessController

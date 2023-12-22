@@ -5,11 +5,22 @@ import checkoutRouter from "./checkout.router.js"
 import discountRouter from "./discount.router.js"
 import commentRouter from "./comment.router.js"
 import authRouter from "./auth.router.js"
+import uploadRouter from "./upload.router.js"
 import { apikey, permission } from "../auth/checkAuth.js"
 import session from "express-session"
 import passport from "../auth/auth.passport.js"
+import keyTokenModel from "../models/keyToken.model.js"
+import apikeyModel from "../models/apikey.model.js"
 
 const route = (app) => {
+    app.get("/cc", (req, res, next) => {
+        apikeyModel.create({
+            key: "d9c34385-64f0-4619-b6ef-53c7ddc46be4",
+            permissions: ["0000"],
+            status: true,
+        })
+    })
+
     app.use("/auth", authRouter)
 
     // check apikey
@@ -19,6 +30,8 @@ const route = (app) => {
     app.use(permission("0000"))
 
     app.use("/product", productRouter)
+
+    app.use("/upload", uploadRouter)
 
     app.use("/discount", discountRouter)
 

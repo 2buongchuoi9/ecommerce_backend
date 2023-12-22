@@ -16,7 +16,7 @@ class Database {
 
         switch (type) {
             case DataType.MONGO:
-                const uri = process.env.URI_MONGO_TEST
+                const uri = process.env.URI_MONGO_ATLAS_TEST
                 mongoose
                     .connect(uri)
                     .then((_) => console.log("Connect mongodb success"))

@@ -20,6 +20,6 @@ router.use(authentication)
 
 router.post("/shop/logout", asyncHandler(accessCon.logout))
 
-router.post("/shop/converShop", asyncHandler(accessCon.registerShop))
+router.post("/shop/converShop", asyncHandler(accessCon.converRoleShop))
 
 export default router
