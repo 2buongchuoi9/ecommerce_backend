@@ -50,5 +50,6 @@ const AuthType = {
     GOOGLE: "google",
     FACEBOOK: "facebook",
 }
+const t = "t"
 
 export { Headers, RoleShop, ProductsName, CartState, OrderState, DataType, NotificationType, AuthType }
