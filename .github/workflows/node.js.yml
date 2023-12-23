@@ -20,7 +20,7 @@ jobs:
 
         steps:
             - name: Enviroment variables
-                - run: |
+                run: |
                    echo "PORT: ${{PORT}}"
 
                    echo "GOOGLE_CLIENT_ID: ${{GOOGLE_CLIENT_ID}}"
