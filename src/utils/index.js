@@ -27,8 +27,5 @@ const updateNestedObjectParser = (obj) => {
     })
     return final
 }
-const getIP = async function () {
-    return (await axios.get("https://api64.ipify.org?format=json")).data.ip
-}
 
-export { getSelectData, unGetSelectData, removeUndefinedObject, updateNestedObjectParser, getIP }
+export { getSelectData, unGetSelectData, removeUndefinedObject, updateNestedObjectParser }

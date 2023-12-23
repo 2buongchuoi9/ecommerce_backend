@@ -10,7 +10,6 @@ import { RoleShop } from "../helpers/constans.js"
 import { createTokenPair } from "../auth/authUtils.js"
 import { AuthFailureError, BadRequestError, ConfictRequestError, FobiddenError, NotFoundError } from "../core/error.response.js"
 import keyTokenModel from "../models/keyToken.model.js"
-import { getIP } from "../utils/index.js"
 
 const generateKeyPairSync = () => {
     const { privateKey, publicKey } = crypto.generateKeyPairSync("rsa", {
@@ -132,7 +131,6 @@ const accessService = {
             .lean()
     },
     createModUser: async ({ ipAddress }) => {
-        // const ipAddress = await getIP()
         console.log(ipAddress)
         const email = ipAddress + "@modeUser.gmail.com"
 
