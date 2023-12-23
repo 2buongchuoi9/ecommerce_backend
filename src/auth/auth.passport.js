@@ -9,6 +9,7 @@ const GoogleStrategy = oauth2GG.Strategy
 const FacebookStrategy = oauth2FB.Strategy
 
 const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, FACEBOOK_CLIENT_ID, FACEBOOK_CLIENT_SECRET } = process.env
+console.log("GOOGLE_CLIENT_ID", GOOGLE_CLIENT_ID)
 
 passport.use(
     new GoogleStrategy(
