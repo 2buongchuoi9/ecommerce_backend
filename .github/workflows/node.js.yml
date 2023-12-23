@@ -20,6 +20,7 @@ jobs:
             - name:
                   Enviroment variables
                     run: echo GOOGLE_CLIENT_ID ${{ secrets.GOOGLE_CLIENT_ID }}
+                    run: echo GOOGLE_CLIENT_ID ${{ secrets.GOOGLE_CLIENT_ID }}
                   
                   # env:
                   #    PORT: ${{ secrets.PORT }}
