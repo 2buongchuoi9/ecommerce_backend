@@ -1,5 +1,5 @@
 import { Types } from "mongoose"
-import axios from "axios"
+
 const getSelectData = (select = []) => {
     return Object.fromEntries(select.map((v) => [v, 1]))
 }
