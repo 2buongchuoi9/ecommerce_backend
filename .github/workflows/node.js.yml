@@ -24,6 +24,4 @@ jobs:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
 
-            - run: echo "${{ shopaa.PORT }}"
-
             - run: npm ci
