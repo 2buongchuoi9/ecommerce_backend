@@ -12,6 +12,7 @@ import passport from "../auth/auth.passport.js"
 import keyTokenModel from "../models/keyToken.model.js"
 import apikeyModel from "../models/apikey.model.js"
 import redisClient from "../database/init.redis.js"
+import { SuccessResponse } from "../core/success.response.js"
 
 const route = (app) => {
     app.get("/cc", (req, res, next) => {
@@ -19,6 +20,11 @@ const route = (app) => {
             key: "d9c34385-64f0-4619-b6ef-53c7ddc46be4",
             permissions: ["0000"],
             status: true,
+        })
+    })
+    app.get("/checkstatus", (req, res, next) => {
+        return new SuccessResponse({
+            message: "oke",
         })
     })
 
