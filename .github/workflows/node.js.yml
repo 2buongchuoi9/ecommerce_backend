@@ -55,4 +55,4 @@ jobs:
                   touch .env
                   echo "${{ secrets.MY_ENV }}" >> .env
 
-            - run: pm2 restart shopa
+            - run: pm2 restart shopaa
