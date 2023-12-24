@@ -25,7 +25,7 @@ const route = (app) => {
     app.get("/checkstatus", (req, res, next) => {
         return new SuccessResponse({
             message: "oke",
-        })
+        }).send(res)
     })
 
     app.get("/redis", async (req, res, next) => {
