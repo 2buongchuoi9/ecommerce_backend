@@ -16,7 +16,7 @@ passport.use(
         {
             clientID: GOOGLE_CLIENT_ID,
             clientSecret: GOOGLE_CLIENT_SECRET,
-            callbackURL: "http://localhost:8088/auth/google/callback",
+            callbackURL: "/auth/google/callback",
             passReqToCallback: true,
             scope: ["email", "profile"],
         },
@@ -44,7 +44,7 @@ passport.use(
         {
             clientID: FACEBOOK_CLIENT_ID,
             clientSecret: FACEBOOK_CLIENT_SECRET,
-            callbackURL: "http://localhost:8088/auth/facebook/callback",
+            callbackURL: "/auth/facebook/callback",
             profileFields: ["id", "displayName", "photos", "email"],
         },
         async (accessToken, refreshToken, profile, done) => {
