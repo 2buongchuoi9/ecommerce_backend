@@ -10,7 +10,7 @@ on:
 jobs:
     build:
         runs-on: self-hosted
-        
+
         environment: production
         env:
             PORT: ${{ secrets.PORT }}
@@ -35,39 +35,39 @@ jobs:
             REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
             REDIS_HOST: ${{ secrets.REDIS_HOST }}
             REDIS_PORT: ${{ secrets.REDIS_PORT }}
-        
+
         strategy:
             matrix:
                 node-version: [20.x]
                 # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
         steps:
-            - name: Enviroment variables
-                    run: echo "GOOGLE_CLIENT_ID "
-                  
-                  # env:
-                  #    PORT: ${{ secrets.PORT }}
+            # - name: Enviroment variables
+            #         run: echo "GOOGLE_CLIENT_ID "
 
-                  #    GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-                  #    GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+            # env:
+            #    PORT: ${{ secrets.PORT }}
 
-                  #    FACEBOOK_CLIENT_ID: ${{ secrets.FACEBOOK_CLIENT_ID }}
-                  #    FACEBOOK_CLIENT_SECRET: ${{ secrets.FACEBOOK_CLIENT_SECRET }}
+            #    GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+            #    GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 
-                  #    CLOUDINATY_NAME: ${{ secrets.CLOUDINATY_NAME }}
-                  #    CLOUDINATY_API_KEY: ${{ secrets.CLOUDINATY_API_KEY }}
-                  #    CLOUDINATY_API_SECRET: ${{ secrets.CLOUDINATY_API_SECRET }}
+            #    FACEBOOK_CLIENT_ID: ${{ secrets.FACEBOOK_CLIENT_ID }}
+            #    FACEBOOK_CLIENT_SECRET: ${{ secrets.FACEBOOK_CLIENT_SECRET }}
 
-                  #    AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
-                  #    AWS_BUCKET_ACCESS_KEY: ${{ secrets.AWS_BUCKET_ACCESS_KEY }}
-                  #    AWS_BUCKET_ACCESS_SECRET: ${{ secrets.AWS_BUCKET_ACCESS_SECRET }}
-                  #    AWS_BUCKET_ACCESS_REGION: ${{ secrets.AWS_BUCKET_ACCESS_REGION }}
+            #    CLOUDINATY_NAME: ${{ secrets.CLOUDINATY_NAME }}
+            #    CLOUDINATY_API_KEY: ${{ secrets.CLOUDINATY_API_KEY }}
+            #    CLOUDINATY_API_SECRET: ${{ secrets.CLOUDINATY_API_SECRET }}
 
-                  #    MONGO_URI_ATLAS_TEST: ${{ secrets.MONGO_URI_ATLAS_TEST }}
+            #    AWS_BUCKET_NAME: ${{ secrets.AWS_BUCKET_NAME }}
+            #    AWS_BUCKET_ACCESS_KEY: ${{ secrets.AWS_BUCKET_ACCESS_KEY }}
+            #    AWS_BUCKET_ACCESS_SECRET: ${{ secrets.AWS_BUCKET_ACCESS_SECRET }}
+            #    AWS_BUCKET_ACCESS_REGION: ${{ secrets.AWS_BUCKET_ACCESS_REGION }}
 
-                  #    REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
-                  #    REDIS_HOST: ${{ secrets.REDIS_HOST }}
-                  #    REDIS_PORT: ${{ secrets.REDIS_PORT }}
+            #    MONGO_URI_ATLAS_TEST: ${{ secrets.MONGO_URI_ATLAS_TEST }}
+
+            #    REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+            #    REDIS_HOST: ${{ secrets.REDIS_HOST }}
+            #    REDIS_PORT: ${{ secrets.REDIS_PORT }}
 
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
@@ -77,3 +77,6 @@ jobs:
                   cache: "npm"
 
             - run: npm ci
+            - run: |
+                  touch .env
+                  echo "${{ secrets.MY_ENV }}"
