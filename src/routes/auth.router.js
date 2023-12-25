@@ -25,15 +25,15 @@ router.get("/facebook", passport.authenticate("facebook", { scope: ["email"] }))
 router.get(
     "/google/callback",
     passport.authenticate("google", {
-        successRedirect: "/auth/google/success",
-        failureRedirect: "/auth/google/failure",
+        successRedirect: "/api/v1/auth/google/success",
+        failureRedirect: "/api/v1/auth/google/failure",
     })
 )
 router.get(
     "/facebook/callback",
     passport.authenticate("facebook", {
-        successRedirect: "/auth/facebook/success",
-        failureRedirect: "/auth/facebook/failure",
+        successRedirect: "/api/v1/auth/facebook/success",
+        failureRedirect: "/api/v1/auth/facebook/failure",
     })
 )
 
