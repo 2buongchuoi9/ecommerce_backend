@@ -14,25 +14,27 @@ import apikeyModel from "../models/apikey.model.js"
 import redisClient from "../database/init.redis.js"
 import { SuccessResponse } from "../core/success.response.js"
 
+const apiversion = "/api/v1"
+
 const route = (app) => {
-    app.get("/cc", (req, res, next) => {
+    app.get(apiversion + "/cc", (req, res, next) => {
         apikeyModel.create({
             key: "d9c34385-64f0-4619-b6ef-53c7ddc46be4",
             permissions: ["0000"],
             status: true,
         })
     })
-    app.get("/checkstatus", (req, res, next) => {
+    app.get(apiversion + "/checkstatus", (req, res, next) => {
         return new SuccessResponse({
             message: "oke",
         }).send(res)
     })
 
-    app.get("/redis", async (req, res, next) => {
+    app.get(apiversion + "/redis", async (req, res, next) => {
         res.send(await redisClient.get("ab"))
     })
 
-    app.use("/auth", authRouter)
+    app.use(apiversion + "/auth", authRouter)
 
     // check apikey
     app.use(apikey)
@@ -40,19 +42,19 @@ const route = (app) => {
     // check permission
     app.use(permission("0000"))
 
-    app.use("/product", productRouter)
+    app.use(apiversion + "/product", productRouter)
 
-    app.use("/upload", uploadRouter)
+    app.use(apiversion + "/upload", uploadRouter)
 
-    app.use("/discount", discountRouter)
+    app.use(apiversion + "/discount", discountRouter)
 
-    app.use("/cart", cartRouter)
+    app.use(apiversion + "/cart", cartRouter)
 
-    app.use("/checkout", checkoutRouter)
+    app.use(apiversion + "/checkout", checkoutRouter)
 
-    app.use("/comment", commentRouter)
+    app.use(apiversion + "/comment", commentRouter)
 
-    app.use("/", accessRouter)
+    app.use(apiversion + "/", accessRouter)
 
     // app.use("/", (rep, res, next) => {
     //     res.send("home")
