@@ -1,12 +1,14 @@
 import { productModel, clothingModel, electronicModel, furnitureModel } from "../models/product.model.js"
 import { BadRequestError } from "../core/error.response.js"
 // import rabbitMQ from "../database/init.rabbitMQ.js"
-import { ProductsName as ProName } from "../helpers/constans.js"
+import { ProductsName as ProName, ProductStatus } from "../helpers/constans.js"
 import productRepo from "../models/repositories/product.repo.js"
 import { removeUndefinedObject, updateNestedObjectParser } from "../utils/index.js"
 import inventoryRepo from "../models/repositories/inventory.repo.js"
 
 const SELECT = ["_id", "product_name", "product_thumb", "product_price", "product_description"]
+
+const { DRAFT, PUBLISHED } = ProductStatus
 
 const productService = {
     createProduct: async (type, payload) => {
@@ -15,24 +17,29 @@ const productService = {
     },
 
     // QUERY //
-    getAllProducts: async ({ limit = 50, sort, page = 1, filter = { isPublished: true }, select = SELECT }) => {
-        return await productRepo.findAllProducts({ limit, sort, page, filter, select })
+    getAllProducts: async ({ limit = 50, sort, page = 1, filter = { product_status: PUBLISHED } }) => {
+        return await productRepo.findAllProducts({ limit, sort, page, filter })
     },
     getOneProduct: async ({ product_id }) => {
         return await productRepo.findProduct({ product_id, unSelect: ["__v"] })
     },
-    searchProducts: async ({ keySearch, limit = 50, page = 1, select = SELECT }) => {
-        return await productRepo.searchProductByUser({ keySearch, limit, page, select })
+    searchProducts: async ({ keySearch, limit = 50, page = 1 }) => {
+        return await productRepo.searchProductByUser({ keySearch, limit, page })
     },
 
     findAllDraftsForShop: async ({ product_shop, limit = 50, skip = 0 }) => {
-        const query = { product_shop, isDraft: true }
+        const query = { product_shop, product_status: DRAFT }
         return await productRepo.findAllDraftsForShop({ query, limit, skip })
     },
     findAllPublishForShop: async ({ product_shop, limit = 50, skip = 0 }) => {
-        const query = { product_shop, isPublished: true }
+        const query = { product_shop, product_status: PUBLISHED }
         return await productRepo.findAllPublishForShop({ query, limit, skip })
     },
+
+    getAllProductByCategoryId: async ({ categoryId }) => {
+        return await productModel.find({ product_category: categoryId }).lean()
+    },
+
     // END QUERY //
 
     // PUT //
@@ -79,6 +86,7 @@ class Product {
         product_type,
         product_shop,
         product_attributes,
+        product_category,
     }) {
         this.product_name = product_name
         this.product_thumb = product_thumb
@@ -88,6 +96,7 @@ class Product {
         this.product_type = product_type
         this.product_shop = product_shop
         this.product_attributes = product_attributes
+        this.product_category = product_category
     }
 
     async createProduct(productId) {

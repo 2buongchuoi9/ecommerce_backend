@@ -2,6 +2,9 @@ import { Types } from "mongoose"
 import { productModel, clothingModel, electronicModel, furnitureModel } from "../product.model.js"
 
 import { getSelectData, unGetSelectData } from "../../utils/index.js"
+import { ProductStatus } from "../../helpers/constans.js"
+
+const { DRAFT, PUBLISHED } = ProductStatus
 
 const productRepo = {
     findAllDraftsForShop: async ({ query, limit, skip }) => {
@@ -12,16 +15,15 @@ const productRepo = {
     },
 
     publishProductByShop: async ({ product_shop, product_id }) => {
-        const foundShop = await productModel.findOne({
+        const foundProduct = await productModel.findOne({
             product_shop: new Types.ObjectId(product_shop),
             _id: new Types.ObjectId(product_id),
         })
-        if (!foundShop) return null
+        if (!foundProduct) return null
 
-        foundShop.isDraft = false
-        foundShop.isPublished = true
+        foundProduct.product_status = PUBLISHED
 
-        const { modefiedCount } = await foundShop.updateOne(foundShop)
+        const { modefiedCount } = await foundProduct.updateOne(foundProduct)
         return modefiedCount
     },
 
@@ -30,13 +32,13 @@ const productRepo = {
         const sortBy = sort === "ctime" ? { _id: -1 } : { _id: 1 }
         return await productModel.find(filter).sort(sortBy).skip(skip).limit(limit).select(getSelectData(select)).lean()
     },
-    searchProductByUser: async ({ keySearch, limit, page, select }) => {
+    searchProductByUser: async ({ keySearch, limit, page }) => {
         const skip = (page - 1) * limit
         const regexSearch = new RegExp(keySearch)
         return await productModel
             .find(
                 {
-                    isDraft: false,
+                    product_status: PUBLISHED,
                     $text: { $search: regexSearch },
                 },
                 { score: { $meta: "textScore" } }
@@ -44,7 +46,7 @@ const productRepo = {
             .sort({ score: { $meta: "textScore" } })
             .skip(skip)
             .limit(limit)
-            .select(getSelectData(select))
+            // .select(getSelectData(select))
             .lean()
     },
 

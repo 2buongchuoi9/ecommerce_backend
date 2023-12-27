@@ -35,7 +35,10 @@
         "passport": "^0.7.0",
         "passport-facebook": "^3.0.0",
         "passport-google-oauth2": "^0.2.0",
-        "redis": "^4.6.11"
+        "redis": "^4.6.11",
+        "swagger-autogen": "^2.23.7",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.0"
     },
     "devDependencies": {
         "concurrently": "^8.2.2",

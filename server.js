@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import app from "./src/app.js"
+import redisClient from "./src/database/init.redis.js"
 
 const port = process.env.PORT || 8088
 
@@ -11,5 +12,6 @@ process.on("SIGINT", () => {
     server.close(() => {
         console.log("exit server express")
         mongoose.disconnect()
+        redisClient.disconnect()
     })
 })

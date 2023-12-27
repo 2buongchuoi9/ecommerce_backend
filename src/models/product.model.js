@@ -1,11 +1,13 @@
 import mongoose, { Schema, model, mongo } from "mongoose"
+import { ProductStatus as Status } from "../helpers/constans.js"
 import { ProductsName as ProName } from "../helpers/constans.js"
 import slug from "mongoose-slug-updater"
 
 const DOCUMENT_NAME = "Product"
 const COLLECTION_NAME = "Products"
 const shop = "Shop"
-const enumProductType = Object.keys(ProName).map((v) => ProName[v])
+const enumProductStatus = Object.keys(Status).map((k) => Status[k])
+const enumProductType = Object.keys(ProName).map((k) => ProName[k])
 
 mongoose.plugin(slug)
 
@@ -16,6 +18,7 @@ const productSchema = new Schema(
         product_thumb: { type: String },
         product_price: { type: Number, require: true },
         product_quantity: { type: Number, require: true },
+        product_category: { type: Array, require: true },
         product_description: { type: String },
         product_type: { type: String, require: true, enum: enumProductType },
         product_shop: { type: Schema.Types.ObjectId, ref: shop },
@@ -29,8 +32,7 @@ const productSchema = new Schema(
             set: (val) => Math.round(val * 10) / 10,
         },
         product_variations: { type: Array, default: [] },
-        isDraft: { type: Boolean, default: true, index: true },
-        isPublished: { type: Boolean, default: false, index: true },
+        product_status: { type: String, enum: enumProductStatus, default: Status.DRAFT },
     },
     { collection: COLLECTION_NAME, timestamps: true }
 )

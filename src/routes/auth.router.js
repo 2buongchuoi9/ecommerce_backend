@@ -15,6 +15,7 @@ router.use(
         cookie: { secure: false },
     })
 )
+
 router.use(passport.initialize())
 router.use(passport.session())
 

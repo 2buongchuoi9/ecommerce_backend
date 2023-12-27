@@ -21,6 +21,13 @@ const productController = {
         }).send(res)
     },
 
+    getAllProductByCategoryId: async (req, res, next) => {
+        return new SuccessResponse({
+            message: "Get product success",
+            metadata: await productService.getAllProductByCategoryId(req.query),
+        }).send(res)
+    },
+
     getProduct: async (req, res, next) => {
         return new SuccessResponse({
             message: "Get product success",
