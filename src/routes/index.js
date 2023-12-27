@@ -7,6 +7,7 @@ import discountRouter from "./discount.router.js"
 import commentRouter from "./comment.router.js"
 import categoryRouter from "./category.router.js"
 import authRouter from "./auth.router.js"
+import testRouter from "./test.router.js"
 import uploadRouter from "./upload.router.js"
 import { apikey, permission } from "../auth/checkAuth.js"
 import apikeyModel from "../models/apikey.model.js"
@@ -14,35 +15,9 @@ import redisClient from "../database/init.redis.js"
 import { SuccessResponse } from "../core/success.response.js"
 
 const apiversion = "/api/v1"
-
 const router = express.Router()
 
-router.get(apiversion + "/cc", (req, res, next) => {
-    apikeyModel.create({
-        key: "d9c34385-64f0-4619-b6ef-53c7ddc46be4",
-        permissions: ["0000"],
-        status: true,
-    })
-})
-
-/**
- *  @swagger
- *  /oke:
- *    get:
- *      summary: test summary
- *      response:
- *        200:
- *          description: just check connect backend
- */
-router.get(apiversion + "/checkstatus", (req, res, next) => {
-    return new SuccessResponse({
-        message: "oke",
-    }).send(res)
-})
-
-router.get(apiversion + "/redis", async (req, res, next) => {
-    res.send(await redisClient.get("ab"))
-})
+router.use(apiversion + "/test", testRouter)
 
 router.use(apiversion + "/auth", authRouter)
 
