@@ -2,7 +2,10 @@ import infoModel from "../models/info.model.js"
 
 const infoService = {
     getInfo: async () => {
-        return await infoModel.find().lean()[0]
+        const a = await infoModel.find().lean()
+        console.log("a", a)
+
+        return a[0]
     },
 }
 
