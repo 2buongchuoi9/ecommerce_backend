@@ -14,6 +14,7 @@ const infoSchema = new mongoose.Schema(
         info_about: { type: Array },
         info_payment: { type: Array },
         info_ship: { type: Array },
+        info_banner: { type: Array },
     },
     { collection: COLLECTION_NAME, timestaps: true }
 )

@@ -15,4 +15,6 @@ router.use(authentication)
 
 router.post("/", permissionRole(RoleShop.ADMIN), asyncHandler(categoryController.addCategoryByAdmin))
 
+router.patch("/:cateId", permissionRole(RoleShop.ADMIN), asyncHandler(categoryController.updateCategoryByAdmin))
+
 export default router

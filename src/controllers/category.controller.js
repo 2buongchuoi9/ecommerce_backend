@@ -11,6 +11,16 @@ const categoryController = {
         }).send(res)
     },
 
+    updateCategoryByAdmin: async (req, res, next) => {
+        console.log("body", req.body)
+        console.log("params", req.params)
+
+        return new SuccessResponse({
+            message: "add cate success",
+            metadata: await categotyService.updateCategoryByAdmin({ ...req.params, payload: { ...req.body } }),
+        }).send(res)
+    },
+
     getAllCategory: async (req, res, next) => {
         return new SuccessResponse({
             message: "all cate success",

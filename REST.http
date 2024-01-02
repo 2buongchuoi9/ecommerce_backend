@@ -1,5 +1,5 @@
 
-@urlDev= http://localhost:8088
+@urlDev= http://localhost:3000/api/v1
 
 ### signup
 POST {{urlDev}}/shop/signup HTTP/1.1
@@ -24,10 +24,8 @@ x-api-key: d9c34385-64f0-4619-b6ef-53c7ddc46be4
 
 
 ### logout
-POST  {{urlDev}}/shop/logout HTTP/1.1
+POST {{urlDev}}/test/create-info HTTP/1.1
 x-api-key : d9c34385-64f0-4619-b6ef-53c7ddc46be4
-x-client-id: 656cdd028f9e4d252ec953c5
-authorization: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTZjYmE5Yzg3YzBlMTk1ODA0NTJhMzgiLCJlbWFpbCI6InNob3BfYWJjQGdtYWlsLmNvbSIsImlhdCI6MTcwMTYyNzUxMiwiZXhwIjoxNzAxODAwMzEyfQ.oIkrn2SS-Jm8qWdecvZ4IrnbNs0r8mIxvnm6Jm0sJnyRpA9Wb72lwG75ju_awbMOKQUTGU12jZqx3RWo8KhGOjvD-KCx_xbcAjtHzU1H2aBrOFgypg5qKmLnaKRwQTS2rb_Xm6sLMSCyfYNMyYjxwooDrsxhgApUgerYVExSwfGinBb0TfFqfeT97wLL-7BQvVTjVTp5_cdMphR50RpjTq1wL9oJsrQKBuLQakj-lYwP5TesCYrYUAZCAWlzeX8gPKLFqlrE1fui__LQDm3oUFhUcC8RerGFmKG7wuE4QaMIOMz6RydPmpe4np4eW0r-wGd_t09FOlRJ6hsBmXJblUVVgveApQaqys8ROjZItlzbyFAfhnjpQKynTl-9EKnGkI8JHz7xgpVrXnyYUO_oPPYJRbq_omRC11fR4UQewxICpTQgfRCq5orVGp_YuQvIicwD987g5KTA8DReTWloE7seOd6kroxHaXgKdjcA3DdAj9cBEzn0iS5sotshccHYsGXgMX1qbJHR2jRbhAGNNKGb7ltpZFYEPl5vPzQ4nfOF5tBxqa4jTQyuClEQqHeg64XEU5ZJ4IOQx9UuHQcVm84ONYhtL5yLIRv0HumQ7dPknq6w7EM-rOAb4XRkXw6LheplI7wxH71nVjV7DvgVXq_n73LmeDdr0Mv_kSZPUvg
 
 
 ### handlerRefreshToken
