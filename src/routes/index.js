@@ -22,10 +22,10 @@ router.use(apiversion + "/test", testRouter)
 router.use(apiversion + "/auth", authRouter)
 
 // check apikey
-router.use(apikey)
+// router.use(apikey)
 
-// check permission
-router.use(permission("0000"))
+// // check permission
+// router.use(permission("0000"))
 
 router.use(apiversion + "/product", productRouter)
 
